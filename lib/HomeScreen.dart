@@ -1,3 +1,4 @@
+import 'package:blogapp/Upload_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -18,21 +19,41 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text("Home"),
         actions: [
-          GestureDetector(
-            onTap: (){
-              FirebaseAuth.instance.signOut().whenComplete((){
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => AuthenticScreen()),
-                );
-              }).catchError((error){
-                Fluttertoast.showToast(msg: error.toString());
-              });
-            },
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.exit_to_app,
-                color: Colors.white,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+              onTap: (){
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => UploadScreen()),
+                  );
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(
+                  Icons.upload_file,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+              onTap: (){
+                FirebaseAuth.instance.signOut().whenComplete((){
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => AuthenticScreen()),
+                  );
+                }).catchError((error){
+                  Fluttertoast.showToast(msg: error.toString());
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(
+                  Icons.exit_to_app,
+                  color: Colors.white,
+                ),
               ),
             ),
           )

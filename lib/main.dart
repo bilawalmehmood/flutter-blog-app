@@ -1,6 +1,9 @@
 import 'package:blogapp/authentic_screen.dart';
+import 'package:blogapp/landing_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+import 'Upload_screen.dart';
 
 
 
@@ -21,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
-      home: AuthenticScreen()
+      home: UploadScreen()
     );
   }
 }

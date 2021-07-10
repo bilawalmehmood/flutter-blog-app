@@ -124,7 +124,7 @@ class _AuthenticScreenState extends State<AuthenticScreen> {
                 TextField(
                   controller: _passwordControllr,
                   obscureText: true,
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType: TextInputType.visiblePassword,
                   decoration: InputDecoration(
                       labelText: "Password"
                   ),
